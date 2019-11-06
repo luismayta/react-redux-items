@@ -23,14 +23,33 @@
     "react-scripts": "3.2.0",
     "redux": "^4.0.4"
   },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-plugin-import": "^2.18.2",
+    "husky": "^3.0.9",
+    "prettier": "^1.18.2"
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint && yarn format"
+    }
+  },
   "name": "react-redux-items",
+  "prettier": {
+    "bracketSpacing": false,
+    "printWidth": 90,
+    "trailingComma": "es5"
+  },
   "private": true,
   "scripts": {
     "build": "react-scripts build",
     "eject": "react-scripts eject",
+    "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md|vue)\"",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
     "start": "react-scripts start",
     "test": "react-scripts test"
   },
