@@ -24,8 +24,10 @@
     "redux": "^4.0.4"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.3",
     "eslint": "^6.6.0",
     "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-react": "^7.16.0",
     "husky": "^3.0.9",
     "prettier": "^1.18.2"
   },
@@ -39,9 +41,10 @@
   },
   "name": "react-redux-items",
   "prettier": {
-    "bracketSpacing": false,
-    "printWidth": 90,
-    "trailingComma": "es5"
+    "printWidth": 120,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all"
   },
   "private": true,
   "scripts": {
