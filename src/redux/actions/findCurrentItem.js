@@ -1,8 +1,8 @@
-export const type = "findCurrentItem";
+export const type = 'findCurrentItem'
 
-const findCurrentItem = itemId => ({
+const findCurrentItem = (itemId) => ({
   type,
-  payload: Number(itemId),
-});
+  payload: Number(itemId)
+})
 
-export default findCurrentItem;
+export default findCurrentItem

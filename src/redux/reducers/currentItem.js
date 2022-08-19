@@ -1,21 +1,21 @@
-import {type as findCurrentItemType} from "../actions/findCurrentItem";
-import items from "../../data/items";
+import { type as findCurrentItemType } from '../actions/findCurrentItem'
+import items from '../../data/items'
 
-const defaultState = [];
+const defaultState = []
 
-function reducer(state = defaultState, {type, payload}) {
+function reducer(state = defaultState, { type, payload }) {
   switch (type) {
     case findCurrentItemType: {
       if (!payload) {
-        return null;
+        return null
       }
 
-      return items.find(n => n.id === payload);
+      return items.find((n) => n.id === payload)
     }
 
     default:
-      return state;
+      return state
   }
 }
 
-export default reducer;
+export default reducer
