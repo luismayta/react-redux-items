@@ -1,43 +1,43 @@
-import React, {Component} from "react";
-import {connect} from "react-redux";
-import {withRouter} from "react-router-dom";
-import Page from "./page";
-import findSuggestions from "../../redux/actions/findSuggestions";
-import findResults from "../../redux/actions/findResults";
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import Page from './page'
+import findSuggestions from '../../redux/actions/findSuggestions'
+import findResults from '../../redux/actions/findResults'
 
 class IAppBar extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
-      text: "",
-    };
+      text: ''
+    }
 
-    this.onChangeText = this.onChangeText.bind(this);
-    this.onChangeSelection = this.onChangeSelection.bind(this);
+    this.onChangeText = this.onChangeText.bind(this)
+    this.onChangeSelection = this.onChangeSelection.bind(this)
   }
 
   onChangeText(text) {
-    this.setState({text});
+    this.setState({ text })
 
-    this.props.findSuggestions(text);
+    this.props.findSuggestions(text)
   }
 
   onChangeSelection(text) {
-    const {findResults, match, history} = this.props;
+    const { findResults, match, history } = this.props
 
-    this.setState({text});
+    this.setState({ text })
 
-    findResults(text);
+    findResults(text)
 
-    if (match.path !== "/results") {
-      history.push("/results");
+    if (match.path !== '/results') {
+      history.push('/results')
     }
   }
 
   render() {
-    const {text} = this.state,
-      {suggestions} = this.props;
+    const { text } = this.state,
+      { suggestions } = this.props
 
     return (
       <Page
@@ -46,21 +46,16 @@ class IAppBar extends Component {
         onChangeText={this.onChangeText}
         onChangeSelection={this.onChangeSelection}
       />
-    );
+    )
   }
 }
 
-const mapStateToProps = state => ({
-    suggestions: state.suggestions,
+const mapStateToProps = (state) => ({
+    suggestions: state.suggestions
   }),
   mapDispatchToProps = {
     findSuggestions,
-    findResults,
-  };
+    findResults
+  }
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(IAppBar)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(IAppBar))

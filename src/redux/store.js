@@ -1,13 +1,13 @@
-import {combineReducers, createStore} from "redux";
-import results from "./reducers/results";
-import suggestions from "./reducers/suggestions";
-import currentItem from "./reducers/currentItem";
+import { combineReducers, createStore } from 'redux'
+import results from './reducers/results'
+import suggestions from './reducers/suggestions'
+import currentItem from './reducers/currentItem'
 
 const reducer = combineReducers({
     results,
     suggestions,
-    currentItem,
+    currentItem
   }),
-  store = createStore(reducer);
+  store = createStore(reducer)
 
-export default store;
+export default store

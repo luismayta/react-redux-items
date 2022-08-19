@@ -14,7 +14,7 @@ keybase: clean
 	make keybase.help
 
 keybase.setup: clean
-	@echo "=====> make dependences for ${TEAM}..."
+	@echo "==> make dependences for ${TEAM}..."
 	mkdir -p ${KEYS_PEM_DIR}
 	mkdir -p ${KEYS_PUB_DIR}
 	mkdir -p ${KEYS_KEY_DIR}
