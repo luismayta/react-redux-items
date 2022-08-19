@@ -1,23 +1,23 @@
-import {type as findResultsType} from "../actions/findResults";
-import items from "../../data/items";
+import { type as findResultsType } from '../actions/findResults'
+import items from '../../data/items'
 
-const defaultState = [];
+const defaultState = []
 
-function reducer(state = defaultState, {type, payload}) {
+function reducer(state = defaultState, { type, payload }) {
   switch (type) {
     case findResultsType: {
       if (!payload) {
-        return [];
+        return []
       }
 
-      const regex = new RegExp(`^${payload}`, "i");
+      const regex = new RegExp(`^${payload}`, 'i')
 
-      return items.filter(n => regex.test(n.title));
+      return items.filter((n) => regex.test(n.title))
     }
 
     default:
-      return state;
+      return state
   }
 }
 
-export default reducer;
+export default reducer

@@ -1,49 +1,44 @@
-import React, {Component} from "react";
-import {connect} from "react-redux";
-import {withRouter} from "react-router-dom";
-import Page from "./page";
-import findCurrentItem from "../../redux/actions/findCurrentItem";
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import Page from './page'
+import findCurrentItem from '../../redux/actions/findCurrentItem'
 
 class Details extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.goTo = this.goTo.bind(this);
+    this.goTo = this.goTo.bind(this)
   }
 
   componentDidMount() {
     const {
       match: {
-        params: {itemId},
+        params: { itemId }
       },
-      findCurrentItem,
-    } = this.props;
+      findCurrentItem
+    } = this.props
 
-    findCurrentItem(itemId);
+    findCurrentItem(itemId)
   }
 
   goTo(path) {
-    this.props.history.push(path);
+    this.props.history.push(path)
   }
 
   render() {
-    const {currentItem} = this.props;
+    const { currentItem } = this.props
 
-    return <Page currentItem={currentItem} goTo={this.goTo} />;
+    return <Page currentItem={currentItem} goTo={this.goTo} />
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     results: state.results,
-    currentItem: state.currentItem,
+    currentItem: state.currentItem
   }),
   mapDispatchToProps = {
-    findCurrentItem,
-  };
+    findCurrentItem
+  }
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Details)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Details))

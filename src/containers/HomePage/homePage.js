@@ -1,20 +1,25 @@
-import React, {Component} from "react";
-import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
-import Results from "../../components/results";
-import Details from "../../components/details";
+import React, { Component } from 'react'
+import Container from '@material-ui/core/Container'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import Typography from '@material-ui/core/Typography'
+import Box from '@material-ui/core/Box'
+import Copyright from '../../components/share/copyright'
+import SideBar from '@material-ui/core/SideBar'
 
 class HomePage extends Component {
   render() {
     return (
-      <BrowserRouter>
-        <Switch>
-          <Route path="/results" component={Results} />
-          <Route path="/details/:itemId" component={Details} />
-          <Redirect from="/" to="/results" />
-        </Switch>
-      </BrowserRouter>
-    );
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Typography component="h3" variant="h5">
+          Sign in
+        </Typography>
+        <Box mt={8}>
+          <Copyright />
+        </Box>
+      </Container>
+    )
   }
 }
 
-export default HomePage;
+export default HomePage
